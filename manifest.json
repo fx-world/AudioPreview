@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Audio Preview",
+    "description": "Adds a preview for audio files (wav, mp3, ..)",
+    "version": "1.0",
+    "author": "fx@fx-world.de",
+    "applications": {
+        "gecko": {
+            "id": "audiopreview@fx-world.de",
+            "strict_min_version": "102.0"
+        }
+    },
+    "permissions": [
+        "messagesRead",
+        "messagesModify"
+    ],
+    "background": {
+        "scripts": [
+            "src/background.js"
+        ]
+    },
+    "icons": {
+        "64": "images/audio.png",
+        "32": "images/audio.png",
+        "16": "images/audio.png"
+    }
+}

@@ -9,7 +9,7 @@ This Addon adds a preview for wave files in the message view, so it can be playe
 
 ### Issues
 
-* audio/mpeg files like mp3s can not be played, because Thunderbird does not have a decoder for it.
+*  ~~audio/mpeg files like mp3s can not be played, because Thunderbird does not have a decoder for it. ~~ Thunderbird added support for mp3.
 
 ### Screenshots
 

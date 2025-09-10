@@ -33,7 +33,6 @@ messenger.runtime.onMessage.addListener((data, sender) => {
     }
     // Add mainDiv to empty body.
     document.body.appendChild(mainDiv);
-    
   }
 
   if (data.command === "addAudioPreview") {
@@ -50,10 +49,10 @@ messenger.runtime.onMessage.addListener((data, sender) => {
       .insertBefore(seperator, document.getElementById("loader"));
     
     let audio = new Audio(data.audioDataUrl);    
-	audio.setAttribute("style", "width: 100%;padding-left:5px;padding-right:5px;padding-bottom:15px;box-sizing:border-box;");
-	audio.controls = true;
+	  audio.setAttribute("style", "width: 100%;padding-left:5px;padding-right:5px;padding-bottom:15px;box-sizing:border-box;");
+	  audio.controls = true;
 
-    // Add the image before the last element.
+    // Add the Audio element before the last element.
     document
       .getElementById("secondDiv")
       .insertBefore(audio, document.getElementById("loader"));

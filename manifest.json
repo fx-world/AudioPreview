@@ -8,7 +8,7 @@
         "gecko": {
             "id": "audiopreview@fx-world.de",
             "strict_min_version": "128.0",
-            "strict_max_version" : "*"
+            "strict_max_version" : "150.*"
         }
     },
     "permissions": [

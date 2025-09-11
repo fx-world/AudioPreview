@@ -23,5 +23,15 @@
         "64": "images/audio.png",
         "32": "images/audio.png",
         "16": "images/audio.png"
+    },
+    "experiment_apis": {
+        "LegacyPrefs": {
+            "schema": "src/LegacyPrefs/schema.json",
+            "parent": {
+                "scopes": ["addon_parent"],
+                "paths": [["LegacyPrefs"]],
+                "script": "src/LegacyPrefs/implementation.js"
+            }
+        }
     }
 }

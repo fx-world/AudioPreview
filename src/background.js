@@ -9,13 +9,21 @@ const PREVIEW_HEIGHT = PREVIEW_WIDTH * 1.5;
  * @param {Integer} messageId - the id of the WebExtension MessageHeader
  */
 async function addInlinePreviews(tabId, messageId) {
+
+  let showAttachmentsInline = await browser.LegacyPrefs.getPref("mail.inline_attachments");
+
+  if (!showAttachmentsInline) {
+    // Do not show audio previews if the setting is off.
+    return;
+  }
+
   // Get a list of all attachments.
   let attachments = await browser.messages.listAttachments(messageId);
   let loadingSpinnerShown = false;
 
   for (let attachment of attachments) {
     // Only audio attachments are handled.
-    if (      
+    if (
       !attachment.contentType.toLowerCase().startsWith("audio/")
     ) {
       continue;
@@ -44,7 +52,6 @@ async function addInlinePreviews(tabId, messageId) {
       reader.readAsDataURL(file);
     });
 
-    
     // Send a message to the tab to display the preview.
     await browser.tabs.sendMessage(tabId, {
       command: "addAudioPreview",
@@ -54,7 +61,7 @@ async function addInlinePreviews(tabId, messageId) {
       pageNumber: 0,
       messageId,
     });
-  
+
   }
 
   // Send a message to the tab to hide the loading spinner again (if shown).

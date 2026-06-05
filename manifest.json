@@ -1,19 +1,19 @@
 {
     "manifest_version": 3,
-    "version": "1.1",
+    "version": "1.2",
     "author": "fx@fx-world.de",
     "name": "Audio Preview",
     "description": "Adds a preview for audio files (wav, mp3, ..)",        
     "browser_specific_settings": {
         "gecko": {
             "id": "audiopreview@fx-world.de",
-            "strict_min_version": "128.0",
-            "strict_max_version" : "140.*"
+            "strict_min_version": "147.0"
         }
     },
     "permissions": [
         "messagesRead",
-        "scripting"
+        "scripting",
+        "messengerSettings"
     ],
     "background": {
         "scripts": [
@@ -21,18 +21,8 @@
         ]
     },
     "icons": {
-        "64": "images/audio.png",
-        "32": "images/audio.png",
-        "16": "images/audio.png"
-    },
-    "experiment_apis": {
-        "LegacyPrefs": {
-            "schema": "src/LegacyPrefs/schema.json",
-            "parent": {
-                "scopes": ["addon_parent"],
-                "paths": [["LegacyPrefs"]],
-                "script": "src/LegacyPrefs/implementation.js"
-            }
-        }
+        "64": "images/audio64.png",
+        "32": "images/audio32.png",
+        "16": "images/audio16.png"
     }
 }

@@ -10,10 +10,10 @@ const PREVIEW_HEIGHT = PREVIEW_WIDTH * 1.5;
  */
 async function addInlinePreviews(tabId, messageId) {
 
-  let showAttachmentsInline = await browser.LegacyPrefs.getPref("mail.inline_attachments");
+  // Use the new messengerSettings API (read-only property).
+  const { value: showAttachmentsInline } = await browser.messengerSettings.readerDisplayAttachmentsInline.get({});
 
   if (!showAttachmentsInline) {
-    // Do not show audio previews if the setting is off.
     return;
   }
 

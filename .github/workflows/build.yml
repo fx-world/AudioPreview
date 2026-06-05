@@ -44,5 +44,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag' || (github.event_name == 'workflow_dispatch' && github.event.inputs.release == 'true' && github.event.inputs.tag != '')
         with:
+          tag_name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
+          name: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
           body: New version.
           files: dist/audio_preview-${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}.xpi
